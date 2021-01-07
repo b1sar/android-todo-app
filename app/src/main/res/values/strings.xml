@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">TODO Application</string>
+    <string name="hello_2">Hello 2!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="pinned_icon_text">PINNED</string>
+    <string name="pinned_icon_image_content_description">The icon indicating pinned notes</string>
+    <string name="todo_search_box_name">Search</string>
+    <string name="search_box_hint">Search notes</string>
+    <string name="pinned_icon_text_desc">pinned icon</string>
+    <string name="notes_text">Notes</string>
+    <string name="bap_delete">Delete</string>
+    <string name="bap_add_checkbox">Add Checkbox</string>
+    <string name="bap_camera">Take Photo</string>
+    <string name="bap_style_action">Style</string>
+    <string name="bap_edit_action">Edit Note</string>
+    <string name="content_description_bab_delete">Delete Note</string>
+    <string name="content_description_bab_add_checkbox">Add checkbox</string>
+    <string name="content_description_bab_camera">Take photo or choose from gallery</string>
+    <string name="content_description_bab_style">Add styling to text</string>
+    <string name="content_description_bab_edit_note">Edit note</string>
+    <string name="save">Save</string>
+    <string name="text_style_action">B I U</string>
+    <string name="text_style_lookup">Look Up</string>
+    <string name="ts_bold_action">Bold</string>
+    <string name="ts_italic_action">Italic</string>
+    <string name="ts_underline_action">Underline</string>
+</resources>

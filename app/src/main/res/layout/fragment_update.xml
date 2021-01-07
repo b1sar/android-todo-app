@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.cebrailyilmaz.todoapplication.ui.SharedViewModel" />
+        <variable
+            name="handlers"
+            type="com.cebrailyilmaz.todoapplication.ui.update.UpdateFragmentHandlers" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/appWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:subtitleTextColor="@color/appYellow"
+            app:titleTextColor="@color/appYellow">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/save_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/save"
+                    android:text="DONE"
+                    android:textColor="@color/appYellow"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/roboto"
+                    android:onClick="@{() -> handlers.onSaveButtonClicked(editContent, viewmodel)}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/copy_action"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_save" />
+
+                <ImageView
+                    android:id="@+id/copy_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/save"
+
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_mobile_share_24"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+        <TextView
+            android:id="@+id/note_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(viewmodel.currentTodo.dateLastModified)}"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar_update"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/edit_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:text="@{viewmodel.currentTodo.content}"
+            android:inputType="textMultiLine"
+            app:layout_constraintTop_toBottomOf="@id/note_date"
+            app:layout_constraintBottom_toTopOf="@id/bottom_actions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_actions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_content"
+            app:layout_constraintVertical_bias="1.0">
+
+
+            <ImageView
+                android:id="@+id/ua_delete"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/content_description_bab_delete"
+                android:foregroundTint="@color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/ua_checklist"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_delete_option" />
+
+            <ImageView
+                android:id="@+id/ua_checklist"
+                android:layout_width="30dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/content_description_bab_add_checkbox"
+                app:layout_constraintBottom_toBottomOf="@+id/ua_delete"
+                app:layout_constraintEnd_toStartOf="@+id/ua_camera"
+                app:layout_constraintStart_toEndOf="@+id/ua_delete"
+                app:layout_constraintTop_toTopOf="@+id/ua_delete"
+                app:srcCompat="@drawable/ic_baseline_check_circle_outline_24" />
+
+            <ImageView
+                android:id="@+id/ua_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/bap_add_checkbox"
+                app:layout_constraintBottom_toBottomOf="@+id/ua_checklist"
+                app:layout_constraintEnd_toStartOf="@+id/ua_style"
+                app:layout_constraintStart_toEndOf="@+id/ua_checklist"
+                app:layout_constraintTop_toTopOf="@+id/ua_checklist"
+                app:srcCompat="@drawable/ic_baseline_photo_camera_24" />
+
+            <ImageView
+                android:id="@+id/ua_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/content_description_bab_style"
+                app:layout_constraintBottom_toBottomOf="@+id/ua_camera"
+                app:layout_constraintEnd_toStartOf="@+id/ua_edit"
+                app:layout_constraintStart_toEndOf="@+id/ua_camera"
+                app:layout_constraintTop_toTopOf="@+id/ua_camera"
+                app:srcCompat="@drawable/ic_baseline_style_24" />
+
+            <ImageView
+                android:id="@+id/ua_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="@string/content_description_bab_edit_note"
+                app:layout_constraintBottom_toBottomOf="@+id/ua_style"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ua_style"
+                app:layout_constraintTop_toTopOf="@+id/ua_style"
+                app:srcCompat="@drawable/ic_baseline_edit_24" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

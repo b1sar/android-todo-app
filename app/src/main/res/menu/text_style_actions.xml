@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/ts_bold_action" android:id="@+id/ts_bold" />
+    <item android:title="@string/ts_italic_action" android:id="@+id/ts_italic" />
+    <item android:title="@string/ts_underline_action" android:id="@+id/ts_underline" />
+</menu>
